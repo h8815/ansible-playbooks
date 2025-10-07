@@ -1,0 +1,18 @@
+---
+- name: "Installing Nginx and starting it"
+  hosts: all
+  become: yes   #tell ansible to use sudo privilage(default)
+
+  tasks:
+  - name: "Installing Nginx"
+    apt:
+      name: nginx
+      state: present
+      update_cache: yes
+
+  - name: "Starting and Enabling the nginx service"
+    service:
+      name: nginx
+      state: started
+      enabled: true
+
