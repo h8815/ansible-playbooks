@@ -1,0 +1,13 @@
+---
+- name: "Copying file on remote server"
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: "COPYING..!!"
+    copy:
+      src: /home/h8/Downloads/ansible.txt
+      dest: demo/
+      mode: ugo+rw
+      backup: true
+
