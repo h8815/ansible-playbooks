@@ -1,0 +1,11 @@
+---
+- name: "First YML File"
+  hosts: all
+
+  tasks: 
+  - name: "Test Connectivity on localhost"
+    ping: # this is module
+      
+  - name: Creating Output  # We can also use " " and also write it
+    debug: msg="Alright Done..!!" 
+
