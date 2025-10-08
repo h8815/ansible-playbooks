@@ -1,0 +1,11 @@
+---
+- name: "Running Script on Remote Server"
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: "Running..!!"
+      shell: /home/h8/Downloads/dock.sh
+
+
+
