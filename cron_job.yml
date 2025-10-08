@@ -1,0 +1,17 @@
+---
+- name: "Running Cron job on remote server"
+  hosts: all
+  become: yes
+
+  tasks: 
+  - name: "Running cron job"
+    cron:
+      name: "Automate"
+      minute: 30
+      hour: 18
+      day: 15
+      month: "*"
+      weekday: "*"
+      user: ubuntu
+      job: /home/h8/Downloads/table.sh
+      # disabled: yes     # use to pause or comment the cron job
