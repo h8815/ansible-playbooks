@@ -1,0 +1,11 @@
+---
+- name: "Remove Cron job"
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: "Removing Job"
+    cron:      
+      name: "Automate using ansible"
+      state: absent
+      user: ubuntu
