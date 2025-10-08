@@ -1,0 +1,21 @@
+---
+- name: "File Module"
+  hosts: all
+  become: yes
+
+  tasks: 
+  - name: "Creating a file"
+    file:
+      path: demo/demofile.txt
+      state: touch
+      mode: u=rwx,g=rw,o=r 
+
+  - name: "Creating a directory"
+    file:
+      path: demo/demo_folder
+      state: directory
+
+  - name: "Changing existing file permission"
+    file:
+      path: demo/ansible.txt
+      mode: 0400
