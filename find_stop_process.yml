@@ -1,0 +1,14 @@
+---
+- name: "Find and kill process"
+  hosts: demo_server
+  become: yes
+  
+  tasks:
+  - name: "Find and kill"
+    ignore_errors: yes
+    shell: "pgrep nginx | xargs kill"
+
+  # Start it again
+  - name: "Start nginx again"
+    shell: "systemctl start nginx"
+
