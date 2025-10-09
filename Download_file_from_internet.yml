@@ -1,0 +1,13 @@
+---
+- name: "Download file from internet"
+  hosts: demo_server
+  become: yes
+
+  tasks:
+  - name: "Downloading file...!!"
+    get_url: 
+      url: https://file-examples.com/wp-content/storage/2017/02/file-sample_1MB.doc
+      dest: /home/ubuntu/demo
+      mode: 0777
+      # owner: 
+      # group:
