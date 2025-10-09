@@ -1,0 +1,16 @@
+---
+- name: "User management"
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: "Creating new user"
+    user: 
+      name: "Himanshu"
+      comment: "Adding for Devops"
+      shell: /bin/bash
+      groups: demo,ubuntu
+
+        # for removing user   
+      state: absent
+      remove: yes 
