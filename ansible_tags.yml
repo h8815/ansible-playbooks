@@ -1,0 +1,16 @@
+---
+- name: "Use of tags"
+  hosts: demo_server
+  become: yes
+
+  tasks:
+  - name: "Install nginx"
+    apt:
+      name: nginx
+    tags: i-nginx   # tag name
+
+  - name: "Start nginx"
+    tags: srt-nginx
+
+  - name: "Reload Nginx"
+    tags: rld-nginx     # you can use your desired name as a tag
