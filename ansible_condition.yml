@@ -1,0 +1,17 @@
+---
+- name: "Condition in ansible"
+  hosts: demo_server
+  become: true
+
+  tasks: 
+  - name: "Installing httpd on RedHat"
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"     # condition: if ansible_os_family is equal to RedHat then it will install httpd
+                                            # use ansible <hosts> -m setup (for build-in variable)
+  - name: "Installing apache2 on Ubuntu"
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family == "Debian"     # condition: if ansible_os_family is equal to Debian then it will install httpd    
