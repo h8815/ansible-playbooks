@@ -1,0 +1,16 @@
+---
+- name: "Creating list in one variable"
+  hosts: demo_server
+  become: yes
+  vars:
+    apps: [apache2,nginx,apt,telnet] # list of package in one variable
+      # we can create  more like this
+      
+  tasks:
+    - name: "Installing apps"
+      
+      with_items: "{{ apps }}" # providing variable name
+      
+      apt:
+        name: "{{ items }}"  # variable item list
+        state: present
