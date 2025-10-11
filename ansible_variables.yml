@@ -1,0 +1,13 @@
+---
+- name: "Use of variables in ansible"
+  hosts: demo_server
+  become: yes
+  vars: 
+    app: nginx    # app is (variable name) and nginx is (value)
+    # game: 2048   # we can provide multiple variables
+
+  tasks:
+  - name:  Installing nginx
+    apt: 
+      name: "{{ app  }}"  # using variable name
+
