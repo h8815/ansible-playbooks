@@ -1,0 +1,35 @@
+---
+- name: "Handlers in ansible"
+  hosts: demo_server
+  become: yes
+
+  tasks:
+  - name: "Installing apache2"
+    apt:
+      name: apache2
+      state: present
+
+  - name: "Starting apache2 service"
+    service:
+      name: apache2
+      enabled: yes
+      state: started
+  
+  - name: "Allow HTTP (port 80) through UFW"
+    ufw:
+      rule: allow
+      port: 80
+      proto: tcp
+    notify:
+        - Reload UFW firewall   # We can provide multiple handlers
+
+  - name: "Enable UFW firewall"
+    ufw:
+      state: enabled
+    notify: Reload UFW firewall
+
+  # if any change the handler will run in the end and if not the wont run
+  handlers:
+    - name: "Reload UFW firewall"
+      command: ufw reload
+       
