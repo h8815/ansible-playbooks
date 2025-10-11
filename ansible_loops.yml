@@ -1,0 +1,19 @@
+---
+- name: "Loops in ansible"
+  hosts: demo_server
+  become: true
+
+  tasks:
+  - name: "Creating multiple user"
+    user:
+      name: "{{ item }}"    # loop items
+      
+      # deleting user
+      state: absent
+      remove: yes
+    loop:
+      - Raju
+      - Baburao     # loop values
+      - Abdul
+
+      
