@@ -1,0 +1,7 @@
+---
+- name: "Install apache and allow ports[80, 443] through UFW"
+  hosts: ansible_server
+  become: yes
+  roles:
+    - apache2_setup
+    - ufw_enable
