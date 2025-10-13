@@ -1,0 +1,19 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for apache2_setup
+- name: "Installing apache2"
+  apt:
+    name: "{{ service }}"
+    state: present
+
+- name: "Starting the service"
+  service:
+    name: "{{ service }}"
+    state: started
+    enabled: yes
+
+- name: "Place custom HTML file"
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+
