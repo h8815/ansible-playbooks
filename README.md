@@ -1,4 +1,3 @@
-
 # Ansible Playbook Practice
 
 Welcome to the **Ansible Playbook Practice** repository! This repository contains practice playbooks, roles, and inventories to help you learn and master Ansible automation.
